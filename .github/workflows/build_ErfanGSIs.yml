@@ -45,9 +45,13 @@ jobs:
          run: |
             python3 -m pip install --upgrade pip setuptools
             
-       - name: Install pycryptodome and backports.lzma
+       - name: Install pycrypto and backports.lzma
          run: |
-             pip install pycryptodome backports.lzma
+             git clone https://github.com/pycrypto/pycrypto.git
+             cd pycrypto
+             python3 setup.py install
+             pip install backports.lzma
+             pip install pycrypto --no-cache-dir
              
        - name: Checkout
          uses: actions/checkout@master
