@@ -14,10 +14,10 @@ on:
     types: [started]
     
 env:
-  ROM_URL:https://download-xys.meizu.com/Firmware/Flyme/meizu21Pro/11.24.6.4/cn_daily/20240604164317/1a5a27b9/update.zip
-  ROM_NAME: flyme
-  BUILD_TYPE: Aonly
-  TZ: Asia/Shanghai
+  ROM_URL: "https://download-xys.meizu.com/Firmware/Flyme/meizu21Pro/11.24.6.4/cn_daily/20240604164317/1a5a27b9/update.zip"
+  ROM_NAME: "flyme"
+  BUILD_TYPE: "Aonly"
+  TZ: "Asia/Shanghai"
 
 jobs:
   build:
