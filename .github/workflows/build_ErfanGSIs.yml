@@ -25,6 +25,18 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
+       - name: Install dependencies
+         run: |
+             sudo apt-get update
+             sudo apt-get install -y python3-dev build-essential checkinstall libgmp3-dev libssl-dev
+       - name: Upgrade pip and setuptools
+         run: |
+            python3 -m pip install --upgrade pip setuptools
+            
+       - name: Install pycrypto and backports.lzma
+         run: |
+             pip install pycrypto backports.lzma
+             
        - name: Checkout
          uses: actions/checkout@master
            
