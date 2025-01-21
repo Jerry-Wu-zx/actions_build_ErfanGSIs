@@ -27,6 +27,13 @@ jobs:
     steps:
        - name: Install dependencies
          run: |
+           sudo apt-get update
+           sudo apt-get install -y liblzma-dev
+       - name: Install Python development headers
+         run: |
+            sudo apt-get install -y python3-dev
+       - name: Install dependencies
+         run: |
              sudo apt-get update
              sudo apt-get install -y python3-dev build-essential checkinstall libgmp3-dev libssl-dev
        - name: Upgrade pip and setuptools
