@@ -25,6 +25,11 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
+       - name: Set up Python environment
+         uses: actions/setup-python@v4
+         with:
+          python-version: "3.8"
+
        - name: Install dependencies
          run: |
            sudo apt-get update
@@ -44,12 +49,14 @@ jobs:
        - name: Upgrade pip and setuptools
          run: |
             python3 -m pip install --upgrade pip setuptools
-            
-       - name: Install pycrypto and backports.lzma
+            python3 -m venv myenv
+            source myenv/bin/activate
+            pip install pycrypto --no-cache-dir
+       - name: Install backports.lzma
          run: |
 
-             pip install backports.lzma
-             pip install pycrypto --no-cache-dir
+             pip3 install backports.lzma
+
              
        - name: Checkout
          uses: actions/checkout@master
