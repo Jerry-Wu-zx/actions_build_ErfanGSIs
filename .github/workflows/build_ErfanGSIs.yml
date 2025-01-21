@@ -40,9 +40,9 @@ jobs:
          run: |
             python3 -m pip install --upgrade pip setuptools
             
-       - name: Install pycrypto and backports.lzma
+       - name: Install pycryptodome and backports.lzma
          run: |
-             pip install pycrypto backports.lzma
+             pip install pycryptodome backports.lzma
              
        - name: Checkout
          uses: actions/checkout@master
